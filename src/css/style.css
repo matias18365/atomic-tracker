@@ -42,5 +42,109 @@ body {
 .label { font-weight: bold; font-size: 0.9rem; }
 
 .score-btn {
-    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--orbitron);
+    font-size: 1rem;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.score-btn.is-active {
+    background-color: transparent !important;
+    border: 1px solid #ffd700 !important;
+    box-shadow: 0 0 15px #ffd700;
+    transform: scale(1.3) rotate(10deg); 
+    color: #ffd700;
+}
+
+/* Animación de sacudida */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake-effect {
+  animation: shake 0.5s;
+}
+
+.floating-text {
+    position: fixed;
+    font-family: var(--orbitron);
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 1000;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+
+.text-xp { color: var(--xp-green); text-shadow: 0 0 5px rgba(74, 222, 128, 0.5); }
+.text-hp { color: var(--hp-red); text-shadow: 0 0 5px rgba(248, 113, 113, 0.5); }
+
+.habit-buttons {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.score-btn.plus {
+    border: 1px solid var(--xp-green);
+    color: var(--xp-green);
+}
+
+.score-btn.plus.is-active {
+    background-color: var(--xp-green) !important;
+    color: var(--bg-color) !important;
+    box-shadow: 0 0 15px var(--xp-green);
+}
+
+.score-btn.minus {
+    border: 1px solid var(--hp-red);
+    color: var(--hp-red);
+}
+
+.score-btn.minus.is-active {
+    background-color: var(--hp-red) !important;
+    color: white !important;
+    box-shadow: 0 0 15px var(--hp-red);
+    transform: scale(1.1);
+}
+
+.habit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid #222;
+    transition: background 0.3s ease;
+}
+
+.habit-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.habit-item span {
+    font-size: 0.95rem;
+    max-width: 70%;
+    line-height: 1.4;
 }

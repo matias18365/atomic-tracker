@@ -40,17 +40,17 @@ export default class HabitService {
         return data.data;
     }
 
-    async scoreTask(taskId) {
-    const response = await fetch(`${this.baseUrl}/tasks/${taskId}/score/up`, {
-        method: 'POST',
-        headers: this.getHeaders()
-    });
+    async scoreTask(taskId, direction = 'up') {
+        const response = await fetch(`${this.baseUrl}/tasks/${taskId}/score/${direction}`, {
+            method: 'POST',
+            headers: this.getHeaders()
+        });
 
-    if (!response.ok) {
-        throw new Error("No se pudo actualizar el hábito");
-    }
+        if (!response.ok) {
+            throw new Error(`No se pudo actualizar el hábito hacia: ${direction}`);
+        }
 
-    const data = await response.json();
-    return data.data;
+        const data = await response.json();
+        return data.data;
     }
 }
