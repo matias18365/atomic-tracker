@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Atomic Tracker</title>
-  <link rel="stylesheet" href="./src/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic Tracker | RPG Dashboard</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
-  <div id="app">
-    <h1>Atomic Tracker</h1>
+    <div id="app">
+        <header>
+            <h1>ATOMIC TRACKER</h1>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-label">HP <span id="hp-text">50/50</span></div>
+                    <div class="bar-background">
+                        <div id="hp-bar" class="bar-fill hp-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-label">XP <span id="xp-text">0/100</span></div>
+                    <div class="bar-background">
+                        <div id="xp-fill" class="bar-fill xp-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <div class="level-badge">
+                    LEVEL <span id="user-level">1</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <ul id="habits-list" class="habits-grid">
+                </ul>
+        </main>
     </div>
 
-  <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="src/js/main.js"></script>
 </body>
 </html>
